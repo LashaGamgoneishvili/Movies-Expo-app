@@ -1,10 +1,9 @@
 import { images } from "@/constants/images";
 import { TrendingMovie } from "@/interfaces/interfaces";
 import MaskedView from "@react-native-masked-view/masked-view";
-import { Text } from "@react-navigation/elements";
 import { Link } from "expo-router";
 import React from "react";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const TrendingCard = ({
   movie,
@@ -14,6 +13,8 @@ const TrendingCard = ({
   index: number;
 }) => {
   const { movie_id, title, poster_url } = movie;
+
+  console.log(index);
 
   return (
     <Link href={`/movies/${movie_id}`} asChild>
@@ -35,16 +36,13 @@ const TrendingCard = ({
               resizeMode="cover"
             />
           </MaskedView>
-
-          <Text
-            className="text-sm font-bold mt-2 text-light-200
-            
-          "
-            numberOfLines={2}
-          >
-            {title}
-          </Text>
         </View>
+        <Text
+          className="text-sm font-bold mt-2 text-light-200"
+          numberOfLines={2}
+        >
+          {title}
+        </Text>
       </TouchableOpacity>
     </Link>
   );
