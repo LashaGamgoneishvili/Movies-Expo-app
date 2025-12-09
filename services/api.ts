@@ -8,12 +8,9 @@ export const TMDB_CONFIG = {
 };
 
 export const fetchMovies = async ({ query }: { query: string }) => {
-  console.log("PropQuery", query);
   const endpoint = query
     ? `${TMDB_CONFIG.BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
     : `${TMDB_CONFIG.BASE_URL}/movie/popular?language=en-US&page=1`;
-
-  console.log({ endpoint });
 
   const response = await fetch(endpoint, {
     method: "GET",
