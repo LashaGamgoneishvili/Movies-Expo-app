@@ -5,8 +5,8 @@ import { updateSearchCount } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
-import MovieCard from "../components/MovieCard";
-import SearchBar from "../components/SearchBar";
+import MovieCard from "../../components/MovieCard";
+import SearchBar from "../../components/SearchBar";
 
 const search = () => {
   const [searchQuery, setSearchQuery] = useState("");

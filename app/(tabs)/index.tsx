@@ -12,9 +12,9 @@ import {
   Text,
   View,
 } from "react-native";
-import MovieCard from "../components/MovieCard";
-import SearchBar from "../components/SearchBar";
-import TrendingCard from "../components/TrendingCard";
+import MovieCard from "../../components/MovieCard";
+import SearchBar from "../../components/SearchBar";
+import TrendingCard from "../../components/TrendingCard";
 
 export default function Index() {
   const router = useRouter();
@@ -71,7 +71,6 @@ export default function Index() {
                     <TrendingCard movie={item} index={index} />
                   )}
                   keyExtractor={(item, index) => `${item.movie_id}-${index}`}
-                  // keyExtractor={(item) => item.movie_id.toString()}
                 />
               </View>
             )}

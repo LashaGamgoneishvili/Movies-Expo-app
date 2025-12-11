@@ -1,4 +1,3 @@
-// track the searcher made by the user
 import { IMovieCardProps, TrendingMovie } from "@/interfaces/interfaces";
 import { Client, Databases, ID, Query } from "react-native-appwrite";
 
@@ -6,18 +5,17 @@ const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!;
 const COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID!;
 
 let client = new Client()
-  .setEndpoint("https://cloud.appwrite.io/v1") // small typo fix: .io
+  .setEndpoint("https://cloud.appwrite.io/v1")
   .setProject(process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!);
 
 const database = new Databases(client);
 
-// --- your custom wrapper instead of calling listDocuments directly ---
 export const listTransactions = async (searchTerm: string) => {
   const result = await database.listDocuments(DATABASE_ID, COLLECTION_ID, [
     Query.equal("searchTerm", searchTerm),
   ]);
 
-  return result; // type: Models.DocumentList<Models.Document>
+  return result;
 };
 
 export const updateSearchCount = async (
